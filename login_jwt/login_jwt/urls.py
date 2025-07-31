@@ -31,4 +31,5 @@ urlpatterns = [
     path('verifytoken/', TokenVerifyView.as_view(), name='token_verify'),
     path('', include(router.urls)),
     path('login/', views.login_page, name='login'),
+    path('add_data/', views.add_data, name='add_data'),
   ]

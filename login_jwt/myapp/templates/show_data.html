@@ -1,0 +1,81 @@
+<!-- students/student_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #888;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #eee;
+        }
+         .top-right-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-decoration: none;
+    }
+
+    .top-right-button button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .top-right-button button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .top-right-button button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+</head>
+<body>
+    <!-- Stylish Add Student Button (Top-Right) -->
+  <a href="{% url 'add_data' %}"? accesss_token="{{accesss_token}}" class="top-right-button">
+    <button type="button">➕ Add Student</button>
+  </a>
+    <h2 style="text-align:center;">Student List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in data %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.roll }}</td>
+                <td>{{ student.city }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No students found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
